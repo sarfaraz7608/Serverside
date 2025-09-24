@@ -59,6 +59,29 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.calculate_bmi, name='calculate_bmi'),
 ]
+templets.py
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <form method="POST">
+  {% csrf_token %}
+  <label>Height (cm):</label>
+  <input type="text" name="height"><br>
+  <label>Weight (kg):</label>
+
+  <input type="text" name="weight"><br>
+
+  <button type="submit">Calculate</button>
+</form>
+
+{% if BMI %}
+  <h3>Your BMI is: {{ BMI }}</h3>
+{% endif %}
+</body>
+</html>
 ```
 ## BMI CALCULATION SERVER SIDE:
 ![alt text](<Screenshot 2025-09-24 112657.png>)
